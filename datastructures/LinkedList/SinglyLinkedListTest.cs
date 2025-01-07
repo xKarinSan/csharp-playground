@@ -1,5 +1,6 @@
-namespace csharp_playground.datastructures.SinglyLinkedList;
-class SinglyLinkedListTest : iTest
+using csharp_playground.utilities.interfaces;
+namespace csharp_playground.datastructures.LinkedList;
+class SinglyLinkedListTest : ITest
 {
     public SinglyLinkedList newSinglyLinkedList;
     public SinglyLinkedList inOrderSinglyLinkedList;

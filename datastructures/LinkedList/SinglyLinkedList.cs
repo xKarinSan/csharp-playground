@@ -1,7 +1,7 @@
-namespace csharp_playground.datastructures.SinglyLinkedList;
+namespace csharp_playground.datastructures.LinkedList;
 class SinglyLinkedListNode : IDisposable
 {
-    public SinglyLinkedListNode? nextNodePointer;
+    SinglyLinkedListNode? _nextNodePointer;
     int _value;
 
     public SinglyLinkedListNode(int newValue)
@@ -10,9 +10,9 @@ class SinglyLinkedListNode : IDisposable
     }
 
     public SinglyLinkedListNode() { }
-    public void SetNextPointer(SinglyLinkedListNode newNodePointer) => nextNodePointer = newNodePointer;
+    public void SetNextPointer(SinglyLinkedListNode newNodePointer) => _nextNodePointer = newNodePointer;
     public int GetValue() => _value;
-    public SinglyLinkedListNode GetNextPointer() => nextNodePointer is not null ? nextNodePointer : null;
+    public SinglyLinkedListNode GetNextPointer() => _nextNodePointer is not null ? _nextNodePointer : null;
     public void Dispose() { }
 }
 
@@ -30,13 +30,6 @@ class SinglyLinkedList
 
     public void AddNodeInAscendingOrder(int newValue)
     {
-        // SinglyLinkedListNode currentNode = _head;
-        // while (currentNode.GetNextPointer() is not null && currentNode.GetValue() < newValue)
-        // {
-        //     currentNode = currentNode.GetNextPointer();
-        // }
-        // SinglyLinkedListNode newNode = new(newValue);
-        // currentNode.SetNextPointer(newNode);
         SinglyLinkedListNode newNode = new(newValue);
         if (_head == null || _head.GetValue() > newValue)
         {
@@ -92,7 +85,7 @@ class SinglyLinkedList
     public void DeleteNode(int nodeValue)
     {
         if (_head == null) return;
-        SinglyLinkedListNode previousNode = _head;
+        SinglyLinkedListNode previousNode = null;
         SinglyLinkedListNode currentNode = _head;
 
         while (currentNode is not null && currentNode.GetValue() != nodeValue)

@@ -1,12 +1,15 @@
 ﻿// File: Program.cs
 using System;
-using csharp_playground.datastructures.SinglyLinkedList; // Ensure this matches your namespace
+using csharp_playground.datastructures.LinkedList; // Ensure this matches your namespace
 
 class Program
 {
     static void Main(string[] args)
     {
-        SinglyLinkedListTest newTest = new();
-        newTest.RunTest();
+        // SinglyLinkedListTest singlyLinkedListTest = new();
+        // singlyLinkedListTest.RunTest();
+
+        DoublyLinkedListTest doublyLinkedListTest = new();
+        doublyLinkedListTest.RunTest();
     }
 }
