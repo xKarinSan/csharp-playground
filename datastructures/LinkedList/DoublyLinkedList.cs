@@ -132,14 +132,51 @@ class DoublyLinkedList
         }
         Console.WriteLine("End of Doubly Linked List from the right");
     }
-    public void DeleteNodeFromLeft(int targetNode)
+    public void DeleteNode(int targetNode)
     {
+        // start from left node (or right node)
+        // cases: 
+        // 1) left head is target
+        // 2) body is target
+        // 3) right head is target
+        // 4) cannot find
+        if (_leftHeadNode.GetValue() == targetNode)
+        {
+            DoublyLinkedListNode tempNode = _leftHeadNode.GetRightPointer();
+            _leftHeadNode.Dispose();
+            tempNode.SetLeftPointer(null);
+            _leftHeadNode = tempNode;
+            DoublyLinkedListNode nextNode = _leftHeadNode.GetRightPointer();
+            nextNode.SetLeftPointer(_leftHeadNode);
+            return;
+        }
+        if (_rightHeadNode.GetValue() == targetNode)
+        {
+            DoublyLinkedListNode tempNode = _rightHeadNode.GetLeftPointer();
+            _rightHeadNode.Dispose();
+            tempNode.SetRightPointer(null);
+            _rightHeadNode = tempNode;
+            DoublyLinkedListNode nextNode = _rightHeadNode.GetLeftPointer();
+            nextNode.SetRightPointer(_leftHeadNode);
+            return;
+        }
 
-    }
+        DoublyLinkedListNode previousNode;
+        DoublyLinkedListNode currentNode = _leftHeadNode;
+        while (currentNode is not null)
+        {
+            previousNode = currentNode;
+            currentNode = currentNode.GetRightPointer();
 
-    public void DeleteNodeFromRight(int targetNode)
-    {
-
+            if (currentNode.GetValue() == targetNode)
+            {
+                DoublyLinkedListNode nextNode = currentNode.GetRightPointer();
+                previousNode.SetRightPointer(nextNode);
+                nextNode.SetLeftPointer(previousNode);
+                currentNode.Dispose();
+                return;
+            }
+        }
     }
 }
 

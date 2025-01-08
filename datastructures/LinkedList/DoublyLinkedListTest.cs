@@ -15,23 +15,19 @@ class DoublyLinkedListTest : ITest
     public void RunTest()
     {
         fromLeftDoublyLinkedList.AddNodeFromLeft(5);
-        fromLeftDoublyLinkedList.TraverseFromLeft();
-        fromLeftDoublyLinkedList.TraverseFromRight();
-
-
         fromLeftDoublyLinkedList.AddNodeFromLeft(8);
-        fromLeftDoublyLinkedList.TraverseFromLeft();
-        fromLeftDoublyLinkedList.TraverseFromRight();
-        
         fromLeftDoublyLinkedList.AddNodeFromRight(11);
-        fromLeftDoublyLinkedList.TraverseFromLeft();
-        fromLeftDoublyLinkedList.TraverseFromRight();
 
         fromLeftDoublyLinkedList.AddNodeFromLeft(1);
+        fromLeftDoublyLinkedList.AddNodeFromLeft(1000);
+        fromLeftDoublyLinkedList.AddNodeFromLeft(69);
+
+        fromLeftDoublyLinkedList.DeleteNode(8);
+        fromLeftDoublyLinkedList.DeleteNode(1);
+        fromLeftDoublyLinkedList.DeleteNode(1000);
+        fromLeftDoublyLinkedList.DeleteNode(69);
+
         fromLeftDoublyLinkedList.TraverseFromLeft();
         fromLeftDoublyLinkedList.TraverseFromRight();
-
-        // fromLeftDoublyLinkedList.TraverseFromLeft();
-        // fromLeftDoublyLinkedList.TraverseFromRight();
     }
 }
