@@ -1,6 +1,3 @@
-using System.ComponentModel.DataAnnotations;
-using System.Diagnostics;
-
 namespace csharp_playground.datastructures.Arrays;
 
 class FixedArrayItem : IDisposable
@@ -49,14 +46,17 @@ class FixedArray
         set => _arrayItemCount = value;
     }
     FixedArrayItem[] _fixedArray;
+
+    public FixedArrayItem[] GetFixedArray => _fixedArray;
     public FixedArray(int arrayLength, string dataType)
     {
         ArrayLength = arrayLength;
         ArrayItemCount = 0;
-        _fixedArray = new FixedArrayItem[_arrayLength];
+        _fixedArray = new FixedArrayItem[ArrayLength];
         _arrayItemCount = 0;
         _dataType = dataType;
     }
+
 
     public void AddItem(FixedArrayItem newItem)
     {
@@ -76,6 +76,7 @@ class FixedArray
         ArrayItemCount--;
         targetItem.Dispose();
     }
+    
     public FixedArrayItem GetItemByIndex(int index)
     {
         if (index < 0 || index >= ArrayLength) return null;

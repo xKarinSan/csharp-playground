@@ -13,7 +13,9 @@ class Program
         // DoublyLinkedListTest doublyLinkedListTest = new();
         // doublyLinkedListTest.RunTest();
 
-        FixedArrayTest fixedArrayTest = new();
-        fixedArrayTest.RunTest();
+        // FixedArrayTest fixedArrayTest = new();
+        // fixedArrayTest.RunTest();
+        DynamicArrayTest dynamicArrayTest = new();
+        dynamicArrayTest.RunTest();
     }
 }
