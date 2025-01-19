@@ -2,7 +2,7 @@
 using System;
 using csharp_playground.datastructures.LinkedList; // Ensure this matches your namespace
 using csharp_playground.datastructures.Arrays; // Ensure this matches your namespace
-
+using csharp_playground.sortingalgos;
 class Program
 {
     static void Main(string[] args)
@@ -15,7 +15,10 @@ class Program
 
         // FixedArrayTest fixedArrayTest = new();
         // fixedArrayTest.RunTest();
-        DynamicArrayTest dynamicArrayTest = new();
-        dynamicArrayTest.RunTest();
+        // DynamicArrayTest dynamicArrayTest = new();
+        // dynamicArrayTest.RunTest();
+
+        SortingTest sortingTest = new();
+        sortingTest.RunTest();
     }
 }
